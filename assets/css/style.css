@@ -1,0 +1,62 @@
+body {
+    background-image: url("https://s3.envato.com/files/207719327/Glitter590.jpg");
+}
+
+.jumbotron {
+    background-color: lightgoldenrodyellow;
+    width: 700px;
+    margin: 50px 200px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    font-size: 5em;
+}
+
+.gemButton {
+    margin: 30px 30px 60px 30px;
+}
+
+.card {
+    position: relative;
+    left: 30%;
+    width: 200px;
+    height: 200px;
+}
+
+.scoreTotal {
+    font: bold;
+    font-size: 2.80em;
+    color: goldenrod;
+    position: relative;
+    bottom: 240px;
+    z-index: 1;
+    left: 35px;
+}
+
+.card .winsLosses {
+    position: relative;
+}
+
+.cardText {
+    position: relative;
+    bottom: 70%;
+    left: 20%;
+    font-weight: bolder;
+}
+
+.card .Random {
+    position: relative;
+    right: 30%;
+}
+
+.computerNum {
+    position: relative;
+    bottom: 70%;
+    right: 10%;
+    font-weight: bold;
+}

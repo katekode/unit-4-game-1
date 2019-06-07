@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="javascript" href="assets/javascript/game.js"> ​
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>GemCollector</title>
+</head>
+
+<body>
+    <div class="header">Gem Collector!</div>
+    ​
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row">
+                <h1 class="display-4">Instructions</h1>
+                <p>Each gem has a secret value! Click on the gems and try and get "Your Total Score" number to match the computer number! If you win, your life will be magical. May the best man win!
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="card Random">
+        <img src="https://i.ebayimg.com/images/g/GEcAAOSwyQtV23TT/s-l640.jpg" width="180px" ; height="180px" ; class="card-img-top" alt="billboard">
+        <div class="cardText">
+            <p class="computerNum">Computer Number: </p>
+        </div>
+    </div>
+    <div class="card winsLosses" style="width: 18rem;">
+        <img src="https://i.ebayimg.com/images/g/GEcAAOSwyQtV23TT/s-l640.jpg" width="180px" ; height="180px" ; class="card-img-top" alt="Gold Sticker">
+        <div class="cardText">
+            <p class="wins">Wins: 0</p>
+            <p class="losses">Losses: 0</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="wrapper">
+        <button class="btn1 gemButton" value="1"><img src= "https://cdn.shopify.com/s/files/1/0380/5717/products/heart-chatham-lab-grown-pink-sapphire-gems_1024x1024.png?v=1535067541" width="200px"; height="200px"; alt="pink Gem"></button>
+        <button class="btn2 gemButton" value="10"><img src= "https://www.ajsgem.com/sites/default/files/ajs/vivid-blue-sapphire-gemstone-sap-00177.jpg" width="200px"; height="200px"; alt="blue gem"></button>
+        <button class="btn3 gemButon" value="20"><img src= "https://www.ajsgem.com/sites/default/files1/14.66ct-green-tourmaline-1000.jpg" width="200px"; height="200px"; alt="green gem"></button>
+        <button class="btn4 gemButton" value="30"><img src="http://cdn.shopify.com/s/files/1/0936/4594/products/Diamond_Canary_Yellow_grande.png?v=1525040304" width="200px" height="200px" alt="yellow gem"></button>
+    </div>
+
+    <div class="card">
+        <img src="https://png.pngtree.com/element_origin_min_pic/16/10/15/175801fc6773de4.jpg" width="220px" ; height="220px" ; class="card-img-top" alt="billboard">
+        <div class="score">
+            <p class="scoreTotal">Your Score Total</p>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            var wins = 0;
+            var losses = 0;
+            var score = 0;
+            var scoreTotal = 0;
+            var computerNum = 0;
+
+            function reset() {
+                randomNum = 0;
+                computerNum();
+                score = 0;
+                scoreTotal = 0;
+
+            };
+
+
+            var computerNum = Math.floor(Math.random() * (120 - 19)) + 19;
+            console.log("Computer Number: " + computerNum);
+            $(".computerNum").html("Computer number: " + computerNum)
+
+            var winner = function() {
+                alert("You win!");
+                wins++;
+                $("#wins").html("Wins: " + wins);
+                reset();
+            };
+            var loser = function() {
+                alert("You lose!!");
+                losses++;
+                $("#losses").html("Losses: " + losses);
+                reset();
+            };
+
+
+
+
+
+
+
+            $('.gemButton').on("click", function() {
+                var gemValue = parseInt($(this).val());
+                score += gemValue;
+                console.log(score);
+                $(".scoreTotal").html(score);
+                if (score == computerNum) {
+                    winner();
+                    reset();
+                } else if (score > computerNum) {
+                    loser();
+                    reset();
+                };
+            });
+
+
+        })
+    </script>
